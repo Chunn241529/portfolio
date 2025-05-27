@@ -54,7 +54,8 @@ Here's your background and experience:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://your-github-username.github.io",  # GitHub Pages domain
+        "https://chunn241529.github.io",  # GitHub Pages domain
+        "https://chunn241529.github.io/portfolio",  # GitHub Pages project domain
         "http://localhost:5500",  # Local development
         "http://127.0.0.1:5500"   # Local development
     ],
