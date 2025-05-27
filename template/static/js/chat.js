@@ -1,3 +1,8 @@
+// API URL configuration
+const API_URL = window.location.hostname === 'localhost'
+    ? 'http://localhost:8000'
+    : 'https://your-ngrok-url.ngrok.app';  // Thay thế bằng URL ngrok của bạn
+
 function toggleChat() {
     const chatContainer = document.getElementById('chatContainer');
     chatContainer.classList.toggle('active');
@@ -81,7 +86,7 @@ async function sendMessage() {
     autoScrollChat();
 
     // Send message to backend
-    const response = await fetch('http://localhost:8000/chat', {
+    const response = await fetch(`${API_URL}/chat`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -116,4 +121,23 @@ async function sendMessage() {
         });
         autoScrollChat();
     }
+}
+
+function downloadCV() {
+    fetch(`${API_URL}/download-cv`)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'VuongNguyenTrung_CV.pdf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            a.remove();
+        })
+        .catch(error => {
+            console.error('Error downloading CV:', error);
+            alert('There was an error downloading the CV. Please try again.');
+        });
 }

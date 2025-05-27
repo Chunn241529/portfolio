@@ -1,0 +1,7 @@
+version: "2"
+authtoken: YOUR_AUTH_TOKEN
+tunnels:
+  portfolio:
+    proto: http
+    addr: 8000
+    domain: your-custom-domain.ngrok.app  # Nếu bạn có paid plan
