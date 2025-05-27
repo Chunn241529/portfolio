@@ -1,0 +1,238 @@
+/* Animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Layout */
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background: #1f1f1f;
+    padding: 30px;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    animation: slideIn 0.5s ease-out;
+}
+
+.profile-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid #00aaff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    border-color: #fff;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Enhanced Menu Styles */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.menu li {
+    margin: 15px 0;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #e0e0e0;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-link i {
+    margin-right: 12px;
+    font-size: 1.2em;
+    min-width: 24px;
+    text-align: center;
+}
+
+.menu-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.menu-link:hover:before {
+    left: 100%;
+}
+
+.menu-link:hover {
+    background: #00aaff;
+    color: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+.menu-link.active {
+    background: #00aaff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 300px;
+    padding: 40px;
+    flex: 1;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Enhanced Profile Section */
+.profile-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.profile-section h2 {
+    color: #00aaff;
+    margin: 20px 0 10px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+.role {
+    color: #e0e0e0;
+    font-size: 1.1em;
+    margin: 10px 0 20px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.contact-info {
+    margin: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.contact-item i {
+    color: #00aaff;
+    margin-right: 15px;
+    font-size: 1.1em;
+    width: 20px;
+    text-align: center;
+}
+
+.contact-item span {
+    color: #b0b0b0;
+    font-size: 0.95em;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    background-color: #00aaff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: 500;
+}
+
+.download-btn i {
+    margin-right: 10px;
+}
+
+.download-btn:hover {
+    background-color: #0088cc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 170, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}

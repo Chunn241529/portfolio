@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuong Nguyen Trung - Portfolio</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/layout.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/monokai.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/highlight.min.js"></script>
+</head>
+
+<body>
+    <div class="layout">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="static/images/me.jpg" alt="Vuong Nguyen Trung">
+                </div>
+                <h2>Vuong Nguyen Trung</h2>
+                <p class="role">Software Tester (Manual)</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0358570211</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>trungvn.tester@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>District 12, HCMC</span>
+                    </div>
+                </div>
+                <a href="/download-cv" class="download-btn">
+                    <i class="fas fa-download"></i>
+                    Download CV
+                </a>
+            </div>
+
+            <ul class="menu">
+                <li>
+                    <a href="#" class="menu-link active" data-section="about" onclick="showSection('about')">
+                        <i class="fas fa-user"></i>
+                        About Me
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-link" data-section="chat" onclick="showSection('chat')">
+                        <i class="fas fa-comments"></i>
+                        Chat with Me
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- About Section -->
+            <div id="about" class="content-section active">
+                <div class="container">
+                    <div class="section">
+                        <h2>Objective</h2>
+                        <p>Possessing nearly two years of experience in software testing, I have honed my attention to
+                            detail, quick
+                            learning ability, and effective problem-solving skills. I thrive in high-pressure
+                            environments,
+                            consistently delivering high-quality results. With my expertise, passion, and the support of
+                            the
+                            company, I am confident in my ability to successfully tackle and excel in any assigned
+                            tasks.</p>
+                    </div>
+                    <div class="section">
+                        <h2>Education</h2>
+                        <p><strong>FPT Polytechnic College</strong> (09/2020 - 12/2022)<br>Software Application<br>GPA:
+                            3.3/4.0<br>President of the Tester Club at the university.</p>
+                    </div>
+                    <div class="section">
+                        <h2>Work Experience</h2>
+                        <p><strong>Sunshine Software Solution Co., Ltd</strong> (09/2022 - 07/2024)<br>Software Quality
+                            Control |
+                            Business Analyst (Full-time)</p>
+                        <ul>
+                            <li>Involved in over 15 projects, responsible for quality control in 10 projects, business
+                                analyst in 2
+                                projects, and supported software testing in the rest.</li>
+                            <li>Analyzed requirements, created test plans, wrote test cases, executed tests, and
+                                reported to the
+                                team leader.</li>
+                            <li>Collaborated with teams to finalize product features and tested APIs using Postman.</li>
+                            <li>Assisted customers in setting up test environments and handled feedback/bug tracking.
+                            </li>
+                            <li>Acted as a Business Analyst, researching requirements, creating wireframes, and
+                                estimating module
+                                completion times.</li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Skills</h2>
+                        <ul>
+                            <li><strong>Programming Languages:</strong> HTML/CSS, JavaScript, SQL, Java, Python</li>
+                            <li><strong>Platforms/Frameworks:</strong> Spring Boot, Git, SQL Server, MySQL</li>
+                            <li><strong>Testing:</strong> Developing test plans, test cases, API testing with Postman
+                            </li>
+                            <li><strong>Requirement Gathering & Analysis:</strong> Stakeholder interviews, workshops
+                            </li>
+                            <li><strong>Documentation:</strong> SRS, functional specifications, user stories</li>
+                            <li><strong>Project Management:</strong> Waterfall, Scrum, Agile</li>
+                            <li><strong>Personal Skills:</strong> Teamwork, adaptability, communication, problem-solving
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="section">
+                        <h2>Projects</h2>
+                        <div class="project">
+                            <h3>5 Phut Thuoc Bai - Mobile Application (01/2023 - 03/2023)</h3>
+                            <p><strong>Customer:</strong> Tam Tri Luc Training Joint Stock Company</p>
+                            <p><strong>Description:</strong> An application using brain science methods to help users
+                                learn and
+                                memorize effectively.</p>
+                            <p><strong>Team Size:</strong> 10 members</p>
+                            <p><strong>Role:</strong> Quality Control</p>
+                            <p><strong>Responsibilities:</strong> Project analysis, develop test plan, perform
+                                functional tests,
+                                detect/report errors, suggest improvements, write instructions.</p>
+                            <p><strong>Technologies:</strong> Frontend: ReactJS, Backend: C#, Mobile: React Native</p>
+                        </div>
+                        <div class="project">
+                            <h3>Buzan Mindmap - Website Application (03/2023 - 05/2023)</h3>
+                            <p><strong>Customer:</strong> Tam Tri Luc Training Joint Stock Company</p>
+                            <p><strong>Description:</strong> A web application for mind mapping to organize and present
+                                ideas
+                                visually.</p>
+                            <p><strong>Team Size:</strong> 10 members</p>
+                            <p><strong>Role:</strong> Quality Control</p>
+                            <p><strong>Responsibilities:</strong> Designed test cases/scenarios, performed manual
+                                testing, defect
+                                tracking, integration testing, supported UAT.</p>
+                        </div>
+                        <div class="project">
+                            <h3>ILA Career - Career Website (07/2023 - 09/2023)</h3>
+                            <p><strong>Customer:</strong> ILA Vietnam Ltd. Co.</p>
+                            <p><strong>Description:</strong> Website for recruiting English teachers.</p>
+                            <p><strong>Team Size:</strong> 4 members</p>
+                            <p><strong>Role:</strong> Quality Control, Business Analyst</p>
+                            <p><strong>Responsibilities:</strong> Gathered/analyzed requirements, created BRD/SRS,
+                                communicated with
+                                development team, performed manual testing, defect tracking, integration testing,
+                                supported UAT.</p>
+                            <p><strong>Technologies:</strong> Frontend: WordPress, Backend: PHP</p>
+                        </div>
+                        <div class="project">
+                            <h3>Ziip Bus - Mobile Application (09/2023 - 12/2023)</h3>
+                            <p><strong>Customer:</strong> Tam Tri Luc Training Joint Stock Company</p>
+                            <p><strong>Description:</strong> Mobile app to manage school buses with biometrics and NFC
+                                for
+                                attendance.</p>
+                            <p><strong>Team Size:</strong> 4 members</p>
+                            <p><strong>Role:</strong> Quality Control</p>
+                            <p><strong>Responsibilities:</strong> Designed test cases, performed manual/automated
+                                testing, API
+                                testing with Postman/JMeter, database testing with SQL Server, defect tracking,
+                                integration testing,
+                                supported UAT.</p>
+                            <p><strong>Technologies:</strong> Frontend: ReactJS, Backend: Java</p>
+                        </div>
+                        <div class="project">
+                            <h3>MatBao MBE - Mobile Application (03/2024 - 05/2024)</h3>
+                            <p><strong>Customer:</strong> Mat Bao WS Joint Stock Company</p>
+                            <p><strong>Description:</strong> Event management solution using AI and QR code for facial
+                                recognition
+                                check-ins.</p>
+                            <p><strong>Team Size:</strong> 10 members</p>
+                            <p><strong>Role:</strong> Quality Control, Business Analyst</p>
+                            <p><strong>Responsibilities:</strong> Gathered/analyzed requirements, created BRD/SRS,
+                                communicated with
+                                development team, performed manual testing, defect tracking, integration testing,
+                                supported UAT.</p>
+                            <p><strong>Technologies:</strong> Frontend: Flutter, Backend: C#</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Section -->
+            <div id="chat" class="content-section">
+                <div class="chat-section">
+                    <div id="chatBody" class="chat-body" onscroll="handleChatScroll(event)">
+                        <!-- Messages will be inserted here -->
+                    </div>
+                    <div class="chat-input-container">
+                        <div class="chat-input-wrapper">
+                            <textarea id="chatInput" class="chat-input"
+                                placeholder="Type your message and press Enter to send..."
+                                onkeydown="handleKeyPress(event)" rows="1"
+                                oninput="this.style.height = '';this.style.height = this.scrollHeight + 'px'"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="static/js/navigation.js"></script>
+        <script src="static/js/chat.js"></script>
+</body>
+
+</html>
