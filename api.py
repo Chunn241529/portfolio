@@ -105,11 +105,11 @@ async def chat_with_ollama(data: dict):
                 async with session.post(
                     f"{OLLAMA_URL}/api/generate",
                     json={
-                        "model": "gemma3:4b-it-qat",
+                        "model": "gemma3:12b-it-qat",
                         "prompt": conversation,
                         "stream": True,
                         "options": {
-                            "temperature": 0.7,
+                            "temperature": 0.4,
                             "max_tokens": -1
                         }
                     }
