@@ -91,10 +91,14 @@ async def chat_with_ollama(data: dict):
     # Add user message to history
     messages_history.append({"role": "user", "content": message})
 
-    # Construct the full conversation context
-    conversation = f"{SYSTEM_PROMPT}\n\nConversation history:\n"
-    for msg in messages_history[-5:]:
+    # Construct the full conversation context with clear separation
+    conversation = f"{SYSTEM_PROMPT}\n\nPREVIOUS CONVERSATION:\n"
+    # Chỉ lấy 3 cặp hội thoại gần nhất để giảm nhiễu
+    for msg in messages_history[-6:-1]:  # Bỏ qua câu hỏi hiện tại
         conversation += f"{msg['role']}: {msg['content']}\n"
+
+    # Thêm dấu hiệu rõ ràng cho câu hỏi hiện tại
+    conversation += f"\nCURRENT QUESTION:\n{message}\n\nYour response should focus on answering the current question only."
 
     logger.debug(f"Sending prompt to Ollama")
 
