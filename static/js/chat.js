@@ -124,20 +124,6 @@ async function sendMessage() {
 }
 
 function downloadCV() {
-    fetch(`${API_URL}/download-cv`)
-        .then(response => response.blob())
-        .then(blob => {
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'VuongNguyenTrung_CV.pdf';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            a.remove();
-        })
-        .catch(error => {
-            console.error('Error downloading CV:', error);
-            alert('There was an error downloading the CV. Please try again.');
-        });
+    const cvUrl = 'https://github.com/Chunn241529/portfolio/raw/main/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf';
+    window.open(cvUrl, '_blank');
 }
