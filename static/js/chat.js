@@ -1,7 +1,7 @@
 // API URL configuration
 const API_URL = window.location.hostname === 'localhost'
     ? 'http://localhost:8000'
-    : 'https://your-ngrok-url.ngrok.app';  // Thay thế bằng URL ngrok của bạn
+    : 'https://7e0e-2a09-bac5-d46d-18d2-00-279-5a.ngrok-free.app';  // Thay thế bằng URL ngrok của bạn
 
 function toggleChat() {
     const chatContainer = document.getElementById('chatContainer');

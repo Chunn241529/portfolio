@@ -8,6 +8,8 @@ from typing import List, Dict
 import PyPDF2
 
 app = FastAPI()
+url_local= "http://localhost:11434"
+url_ngrok= "https://7e0e-2a09-bac5-d46d-18d2-00-279-5a.ngrok-free.app"
 
 def get_cv_content() -> str:
     cv_path = "template/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
@@ -91,7 +93,7 @@ async def chat_with_ollama(data: dict):
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.post(
-                    "http://localhost:11434/api/generate",
+                    f"{url_ngrok}/api/generate",
                     json={
                         "model": "gemma3:4b-it-qat",
                         "prompt": conversation,
