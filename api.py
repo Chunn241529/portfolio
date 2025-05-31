@@ -91,14 +91,40 @@ async def chat_with_ollama(data: dict):
     # Add user message to history
     messages_history.append({"role": "user", "content": message})
 
-    # Construct the full conversation context with clear separation
-    conversation = f"{SYSTEM_PROMPT}\n\nPREVIOUS CONVERSATION:\n"
-    # Chỉ lấy 3 cặp hội thoại gần nhất để giảm nhiễu
-    for msg in messages_history[-6:-1]:  # Bỏ qua câu hỏi hiện tại
-        conversation += f"{msg['role']}: {msg['content']}\n"
+    # Xây dựng context cho câu hỏi hiện tại
+    conversation = f"{SYSTEM_PROMPT}\n\n"
 
-    # Thêm dấu hiệu rõ ràng cho câu hỏi hiện tại
-    conversation += f"\nCURRENT QUESTION:\n{message}\n\nYour response should focus on answering the current question only."
+    # Chỉ lấy 2 cặp hội thoại gần nhất và chỉ khi chúng thực sự liên quan
+    relevant_history = []
+    for msg in messages_history[-5:-1]:  # Bỏ qua câu hỏi hiện tại
+        if msg['role'] == 'user':
+            # Kiểm tra xem câu hỏi cũ có liên quan đến câu hỏi hiện tại không
+            if any(keyword in message.lower() for keyword in msg['content'].lower().split()):
+                relevant_history.append(msg)
+                # Thêm cả câu trả lời tương ứng nếu có
+                next_idx = messages_history.index(msg) + 1
+                if next_idx < len(messages_history) and messages_history[next_idx]['role'] == 'assistant':
+                    relevant_history.append(messages_history[next_idx])
+
+    # Chỉ thêm lịch sử nếu có các câu hỏi liên quan
+    if relevant_history:
+        conversation += "RELEVANT PREVIOUS CONVERSATION:\n"
+        for msg in relevant_history[-4:]:  # Giới hạn 2 cặp hội thoại
+            conversation += f"{msg['role'].upper()}: {msg['content']}\n"
+        conversation += "\n"
+
+    # Thêm câu hỏi hiện tại với chỉ dẫn rõ ràng
+    conversation += f"""CURRENT QUESTION: {message}
+
+INSTRUCTIONS:
+1. Focus ONLY on answering the current question
+2. Do not repeat previous answers
+3. If the question is similar to a previous one, provide new insights or different perspectives
+4. Keep the answer concise and relevant
+5. If the question is completely new, ignore previous conversation history
+
+Your response:
+"""
 
     logger.debug(f"Sending prompt to Ollama")
 
