@@ -74,7 +74,7 @@ app.add_middleware(
 # Endpoint to download CV
 @app.get("/download-cv")
 async def download_cv():
-    cv_path = "template/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
+    cv_path = "static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
     if not os.path.exists(cv_path):
         raise HTTPException(status_code=404, detail="CV file not found")
     return FileResponse(cv_path, media_type="application/pdf", filename="VuongNguyenTrung_CV.pdf")
