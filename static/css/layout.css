@@ -236,3 +236,137 @@
         padding: 20px;
     }
 }
+
+/* Enhanced Responsive Design */
+/* Large Desktop (>1200px) */
+@media (min-width: 1201px) {
+    .main-content {
+        padding: 50px 80px;
+    }
+
+    .profile-section {
+        padding: 40px;
+    }
+}
+
+/* Desktop and Small Laptop (992px - 1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .sidebar {
+        width: 280px;
+    }
+
+    .main-content {
+        margin-left: 280px;
+        padding: 40px 60px;
+    }
+}
+
+/* Tablet (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .main-content {
+        margin-left: 240px;
+        padding: 30px 40px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .menu-link {
+        padding: 10px 15px;
+    }
+}
+
+/* Mobile Landscape (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .profile-section {
+        padding: 20px;
+    }
+
+    .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .menu li {
+        margin: 5px;
+        flex: 1 1 calc(50% - 10px);
+    }
+}
+
+/* Mobile Portrait (<576px) */
+@media (max-width: 575px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 15px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .profile-section {
+        padding: 15px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .menu li {
+        margin: 8px 0;
+    }
+
+    .menu-link {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .contact-item {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* Handle device orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+    .sidebar {
+        height: auto;
+    }
+
+    .profile-section {
+        margin-bottom: 20px;
+    }
+
+    .menu {
+        margin: 15px 0;
+    }
+}
