@@ -1,7 +1,10 @@
+
 version: "2"
-authtoken: YOUR_AUTH_TOKEN
+authtoken: 2pvIJ2M7H41pzkb1lhl3hjXeXA5_4jSrCjC4bPhCd4Qp9My5p
 tunnels:
-  portfolio:
+  ollama:
+    proto: http
+    addr: 11434
+  web:
     proto: http
     addr: 8000
-    domain: your-custom-domain.ngrok.app  # Nếu bạn có paid plan
