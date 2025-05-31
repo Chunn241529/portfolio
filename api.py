@@ -9,7 +9,7 @@ import PyPDF2
 
 app = FastAPI()
 url_local= "http://localhost:11434"
-url_ngrok= "https://cf34-2a09-bac5-d46d-18d2-00-279"
+url_ngrok= "https://cf34-2a09-bac5-d46d-18d2-00-279-5a.ngrok-free.app"  # Cập nhật URL ngrok đầy đủ
 
 def get_cv_content() -> str:
     cv_path = "template/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
