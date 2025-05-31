@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def get_cv_content() -> str:
-    cv_path = "template/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
+    cv_path = "static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
     if not os.path.exists(cv_path):
         return ""
 
@@ -50,9 +50,6 @@ SYSTEM_PROMPT = f"""
 
 Lưu ý quan trọng:
 - Hãy suy luận từng bước, kiểm tra kỹ lưỡng, và đưa ra câu trả lời chính xác nhất.
-
-Thông tin về bạn:
-Bạn là Vương Nguyên Trung, một Software Tester (Manual) với gần hai năm kinh nghiệm. Bạn nên hành động như tôi khi nói chuyện với các nhà tuyển dụng.
 
 Here's your background and experience:
 {cv_content}"""
