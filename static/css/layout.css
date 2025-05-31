@@ -356,6 +356,132 @@
     }
 }
 
+/* Modern Smartphones */
+
+/* iPhone 14 Pro Max, 15 Pro Max (428px) */
+@media screen and (max-width: 428px) {
+    .sidebar {
+        padding: 16px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.6em;
+    }
+
+    .menu-link {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+
+    .contact-info {
+        margin: 15px 0;
+    }
+}
+
+/* iPhone 14, 15, Samsung Galaxy S23 (390-393px) */
+@media screen and (max-width: 393px) {
+    .profile-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .menu-link {
+        padding: 9px 14px;
+        font-size: 0.95em;
+    }
+
+    .profile-section h2 {
+        font-size: 1.5em;
+    }
+
+    .role {
+        font-size: 1em;
+    }
+
+    .contact-item {
+        padding: 8px;
+        margin: 12px 0;
+    }
+}
+
+/* iPhone 14/15 Mini, iPhone 13 Mini (375px) */
+@media screen and (max-width: 375px) {
+    .sidebar {
+        padding: 12px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        border-width: 2px;
+    }
+
+    .menu-link {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .profile-section h2 {
+        font-size: 1.4em;
+        margin: 15px 0 8px;
+    }
+
+    .contact-item i {
+        font-size: 1em;
+        margin-right: 10px;
+    }
+
+    .download-btn {
+        padding: 8px 16px;
+        font-size: 0.85em;
+    }
+}
+
+/* Small Smartphones (320px) */
+@media screen and (max-width: 320px) {
+    .sidebar {
+        padding: 10px;
+    }
+
+    .profile-image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .profile-section h2 {
+        font-size: 1.3em;
+    }
+
+    .role {
+        font-size: 0.9em;
+    }
+
+    .menu-link {
+        padding: 7px 10px;
+        font-size: 0.85em;
+    }
+
+    .menu-link i {
+        font-size: 1em;
+        margin-right: 8px;
+    }
+
+    .contact-item {
+        padding: 6px;
+        font-size: 0.85em;
+    }
+
+    .download-btn {
+        padding: 7px 14px;
+        font-size: 0.8em;
+    }
+}
+
 /* Handle device orientation */
 @media (orientation: landscape) and (max-height: 500px) {
     .sidebar {
@@ -368,5 +494,31 @@
 
     .menu {
         margin: 15px 0;
+    }
+}
+
+/* Handle Device Pixel Ratio for Ultra HD Displays */
+@media screen and (-webkit-min-device-pixel-ratio: 3),
+       screen and (min-resolution: 3dppx) {
+    .profile-image {
+        border-width: 2px;
+    }
+
+    .menu-link {
+        border-width: 0.5px;
+    }
+}
+
+/* Handle Notch/Dynamic Island Areas */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .sidebar {
+        padding-top: max(env(safe-area-inset-top), 15px);
+        padding-left: max(env(safe-area-inset-left), 15px);
+        padding-right: max(env(safe-area-inset-right), 15px);
+    }
+
+    .main-content {
+        padding-left: max(env(safe-area-inset-left), 15px);
+        padding-right: max(env(safe-area-inset-right), 15px);
     }
 }
