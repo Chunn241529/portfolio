@@ -6,10 +6,15 @@ import os
 import json
 from typing import List, Dict
 import PyPDF2
+import logging
 
 app = FastAPI()
 url_local= "http://localhost:11434"
 url_ngrok= "https://cf34-2a09-bac5-d46d-18d2-00-279-5a.ngrok-free.app"  # Cập nhật URL ngrok đầy đủ
+
+# Cấu hình logging
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
 
 def get_cv_content() -> str:
     cv_path = "template/static/cv/VuongNguyenTrung_Tester_QC_CV.pdf"
@@ -81,17 +86,22 @@ async def chat_with_ollama(data: dict):
     if not message:
         raise HTTPException(status_code=400, detail="Message is required")
 
+    logger.debug(f"Received message: {message}")
+
     # Add user message to history
     messages_history.append({"role": "user", "content": message})
 
     # Construct the full conversation context
     conversation = f"{SYSTEM_PROMPT}\n\nConversation history:\n"
-    for msg in messages_history[-5:]:  # Only include last 5 messages for context
+    for msg in messages_history[-5:]:
         conversation += f"{msg['role']}: {msg['content']}\n"
+
+    logger.debug(f"Sending prompt to Ollama")
 
     async def stream_response():
         async with aiohttp.ClientSession() as session:
             try:
+                logger.debug(f"Making request to Ollama at {url_ngrok}")
                 async with session.post(
                     f"{url_ngrok}/api/generate",
                     json={
@@ -104,15 +114,19 @@ async def chat_with_ollama(data: dict):
                         }
                     }
                 ) as response:
+                    logger.debug(f"Ollama response status: {response.status}")
                     async for line in response.content:
                         if line:
                             try:
                                 json_response = json.loads(line.decode('utf-8'))
                                 if 'response' in json_response:
+                                    logger.debug(f"Received chunk: {json_response['response'][:50]}...")
                                     yield json_response['response'].encode('utf-8')
                             except json.JSONDecodeError as je:
+                                logger.error(f"JSON decode error: {str(je)}")
                                 yield f"Error decoding JSON: {str(je)}".encode()
             except Exception as e:
+                logger.error(f"Error in stream_response: {str(e)}")
                 yield f"Error: {str(e)}".encode()
 
     return StreamingResponse(stream_response(), media_type="text/plain")
