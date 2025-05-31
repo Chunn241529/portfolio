@@ -9,8 +9,8 @@ import PyPDF2
 import logging
 
 app = FastAPI()
-url_local= "http://localhost:11434"
-url_ngrok= "https://cf34-2a09-bac5-d46d-18d2-00-279-5a.ngrok-free.app"  # Cập nhật URL ngrok đầy đủ
+# Sử dụng OLLAMA_URL từ môi trường hoặc fallback về localhost
+OLLAMA_URL = os.getenv('OLLAMA_URL', 'http://localhost:11434')
 
 # Cấu hình logging
 logging.basicConfig(level=logging.DEBUG)
@@ -101,9 +101,9 @@ async def chat_with_ollama(data: dict):
     async def stream_response():
         async with aiohttp.ClientSession() as session:
             try:
-                logger.debug(f"Making request to Ollama at {url_ngrok}")
+                logger.debug(f"Making request to Ollama at {OLLAMA_URL}")
                 async with session.post(
-                    f"{url_ngrok}/api/generate",
+                    f"{OLLAMA_URL}/api/generate",
                     json={
                         "model": "gemma3:4b-it-qat",
                         "prompt": conversation,
